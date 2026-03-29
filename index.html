@@ -25,7 +25,6 @@
             color: #333;
         }
 
-        /* Navigation */
         nav {
             background: #003087;
             color: white;
@@ -45,25 +44,11 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
+        .logo { font-size: 1.8rem; font-weight: 700; }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: #ffd700;
-        }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: #ffd700; }
 
         .menu-toggle {
             display: none;
@@ -74,7 +59,6 @@
             cursor: pointer;
         }
 
-        /* Hero */
         .hero {
             height: 100vh;
             width: 100vw;
@@ -122,15 +106,8 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
         }
 
-        .btn:hover {
-            background: #a00d24;
-            transform: translateY(-4px);
-        }
-
-        /* Flèches Slider */
         .slider-arrow {
             position: absolute;
             top: 50%;
@@ -150,7 +127,6 @@
         .prev { left: 25px; }
         .next { right: 25px; }
 
-        /* Sections */
         section { padding: 90px 20px; max-width: 1200px; margin: 0 auto; }
         h2 { text-align: center; font-size: 2.6rem; margin-bottom: 55px; color: var(--primary); }
 
@@ -165,17 +141,13 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
         }
-
-        .card:hover { transform: translateY(-10px); }
 
         .card img { width: 100%; height: 200px; object-fit: cover; }
         .card-content { padding: 25px; }
 
         .events { background: #f8f9fa; }
 
-        /* Contact Form */
         .contact-form {
             max-width: 700px;
             margin: 0 auto;
@@ -215,7 +187,7 @@
             bottom: 100px;
             right: 25px;
             width: 340px;
-            height: 460px;
+            height: 520px;
             background: white;
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
@@ -280,7 +252,6 @@
             padding: 50px 20px;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -321,7 +292,6 @@
     <section id="home" class="hero">
         <button class="slider-arrow prev" onclick="prevImage()">‹</button>
         <button class="slider-arrow next" onclick="nextImage()">›</button>
-
         <div class="hero-content">
             <h1>Welcome to Nduru High School</h1>
             <p>Shaping Future Leaders Through Quality Education, Discipline & Excellence</p>
@@ -420,21 +390,13 @@
                 <input type="email" name="email" placeholder="Email Address" required>
                 <input type="tel" name="phone" placeholder="Phone Number">
                 <textarea name="message" rows="6" placeholder="Your Message or Inquiry..." required></textarea>
-                
-                <input type="hidden" name="_subject" value="New Message from Nduru High School Website">
+                <input type="hidden" name="_subject" value="New Enquiry - Nduru High School">
                 <input type="hidden" name="_captcha" value="false">
-                
-                <button type="submit" class="btn" style="width:100%; margin-top:10px;">Send Message</button>
+                <button type="submit" class="btn" style="width:100%; margin-top:15px;">Send Message</button>
             </form>
         </div>
-        <p style="text-align:center; margin-top:30px;">
-            <strong>Address:</strong> P.O. Box XX, Nyamaramba, Kisii County, Kenya<br>
-            <strong>Phone:</strong> 0721 277 747<br>
-            <strong>Email:</strong> nduruboyshighschool@gmail.com
-        </p>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Nduru High School. All Rights Reserved.</p>
         <p>Excellence • Discipline • Integrity</p>
@@ -443,95 +405,94 @@
     <!-- Chatbot Button -->
     <button class="chat-toggle" onclick="toggleChat()">💬</button>
 
-    <!-- Chatbot Window -->
+    <!-- Chatbot Intelligent -->
     <div id="chatbot">
         <div class="chat-header">
             Nduru High School Support
             <span style="float:right; cursor:pointer; font-size:20px;" onclick="toggleChat()">✕</span>
         </div>
         <div class="chat-body" id="chatBody">
-            <div class="chat-message bot">Hello! 👋 How can we help you today?<br><br>Ask about admissions, fees, academics, or events.</div>
+            <div class="chat-message bot">Hello! 👋 Welcome to Nduru High School.<br><br>May I know your name please?</div>
         </div>
         <div class="chat-input">
-            <input type="text" id="chatInput" placeholder="Type your question..." onkeypress="if(event.key === 'Enter') sendChatMessage()">
-            <button onclick="sendChatMessage()">Send</button>
+            <input type="text" id="chatInput" placeholder="Type here..." onkeypress="if(event.key === 'Enter') handleChatInput()">
+            <button onclick="handleChatInput()">Send</button>
         </div>
     </div>
 
     <script>
-        // Slider
+        // === SLIDER ===
         const hero = document.getElementById('home');
         const images = [
             "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920",
             "https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1920",
             "https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg?auto=compress&cs=tinysrgb&w=1920",
             "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1920",
-            "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1920",
-            "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=compress&cs=tinysrgb&w=1920",
-            "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?auto=compress&cs=tinysrgb&w=1920",
-            "https://images.pexels.com/photos/28593054/pexels-photo-28593054.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1920"
         ];
-
         let currentIndex = 0;
-
-        function showImage(index) {
-            hero.style.backgroundImage = `url('${images[index]}')`;
-        }
-
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            showImage(currentIndex);
-        }
-
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            showImage(currentIndex);
-        }
-
+        function showImage(i) { hero.style.backgroundImage = `url('${images[i]}')`; }
+        function nextImage() { currentIndex = (currentIndex + 1) % images.length; showImage(currentIndex); }
+        function prevImage() { currentIndex = (currentIndex - 1 + images.length) % images.length; showImage(currentIndex); }
         setInterval(nextImage, 6000);
         window.addEventListener('load', () => showImage(0));
 
         // Mobile Menu
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        // === CHATBOT INTELLIGENT ===
+        let chatStep = 0;
+        let userName = "";
+        let userEmail = "";
+        let userMessage = "";
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => navLinks.classList.remove('active'));
-        });
-
-        // Chatbot
         function toggleChat() {
             const chatbot = document.getElementById('chatbot');
             chatbot.style.display = (chatbot.style.display === 'flex') ? 'none' : 'flex';
+            if (chatbot.style.display === 'flex' && chatStep === 0) {
+                document.getElementById('chatBody').innerHTML = `<div class="chat-message bot">Hello! 👋 Welcome to Nduru High School.<br><br>May I know your name please?</div>`;
+                chatStep = 1;
+            }
         }
 
-        function sendChatMessage() {
+        function handleChatInput() {
             const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            if (!message) return;
+            const text = input.value.trim();
+            if (!text) return;
 
             const chatBody = document.getElementById('chatBody');
-            chatBody.innerHTML += `<div class="chat-message user">${message}</div>`;
+            chatBody.innerHTML += `<div class="chat-message user">${text}</div>`;
 
-            let reply = "Thank you for your message. Our team will get back to you soon via email.";
+            if (chatStep === 1) {
+                userName = text;
+                chatBody.innerHTML += `<div class="chat-message bot">Nice to meet you, ${userName}!<br>What is your email address?</div>`;
+                chatStep = 2;
+            } 
+            else if (chatStep === 2) {
+                userEmail = text;
+                chatBody.innerHTML += `<div class="chat-message bot">Thank you!<br>Now, please type your message or question:</div>`;
+                chatStep = 3;
+            } 
+            else if (chatStep === 3) {
+                userMessage = text;
 
-            const lower = message.toLowerCase();
-            if (lower.includes("admission") || lower.includes("join")) {
-                reply = "For admissions, please fill the contact form above or call us on 0721 277 747.";
-            } else if (lower.includes("fee") || lower.includes("fees")) {
-                reply = "School fees information is available upon request. Please send us a message.";
-            } else if (lower.includes("event")) {
-                reply = "Please check the Upcoming Events section or contact us directly.";
+                // Envoi par email
+                const formData = new FormData();
+                formData.append('name', userName);
+                formData.append('email', userEmail);
+                formData.append('message', userMessage);
+                formData.append('_subject', `New Chat Message from ${userName}`);
+
+                fetch('https://formsubmit.co/davidchirwa243@gmail.com', {
+                    method: 'POST',
+                    body: formData
+                }).catch(() => {});
+
+                chatBody.innerHTML += `<div class="chat-message bot">Thank you, ${userName}!<br>We have received your message.<br>We will reply to you soon at <strong>${userEmail}</strong>.</div>`;
+                chatStep = 0;
             }
-
-            setTimeout(() => {
-                chatBody.innerHTML += `<div class="chat-message bot">${reply}</div>`;
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }, 800);
 
             input.value = '';
             chatBody.scrollTop = chatBody.scrollHeight;
